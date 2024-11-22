@@ -43,6 +43,10 @@ def convert_pdf_to_text():
                     current_chunk = sentence + " "
             if current_chunk:
                 chunks.append(current_chunk)
-            print(f"Text split into {len(chunks)} chunks.")
+
+            with open("vault.txt", "a", encoding="utf-8") as vault_file:
+                for chunk in chunks:
+                    vault_file.write(chunk.strip() + "\n") 
+            print(f"PDF content appended to vault.txt with each chunk on a separate line.")
 
 convert_pdf_to_text()
