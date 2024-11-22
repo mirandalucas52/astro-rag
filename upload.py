@@ -31,7 +31,18 @@ def convert_pdf_to_text():
                 
             text = re.sub(r'\s+', ' ', text).strip()
             
-            sentences = re.split(r'(?<=[.!?]) +', text)
-            print("Sentences:", sentences)
+            sentences = re.split(r'(?<=\.)\s+(?=[A-Za-z])', text)
+            
+            chunks = []
+            current_chunk = ""
+            for sentence in sentences:
+                if len(current_chunk) + len(sentence) + 1 < 1000:
+                    current_chunk += (sentence + " ").strip()
+                else:
+                    chunks.append(current_chunk)
+                    current_chunk = sentence + " "
+            if current_chunk:
+                chunks.append(current_chunk)
+            print(f"Text split into {len(chunks)} chunks.")
 
 convert_pdf_to_text()
