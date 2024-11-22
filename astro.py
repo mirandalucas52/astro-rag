@@ -118,3 +118,26 @@ client = OpenAI(
     base_url='http://localhost:11434/v1',
     api_key='llama3.2:1b'
 )
+
+print(NEON_GREEN + "Generating embeddings for the vault content..." + RESET_COLOR)
+
+print(NEON_GREEN + "Checking for existing embeddings..." + RESET_COLOR)
+vault_embeddings_tensor = load_embeddings(EMBEDDINGS_FILE)
+vault_content = []
+if os.path.exists("vault.txt"):
+    with open("vault.txt", "r", encoding='utf-8') as vault_file:
+        vault_content = vault_file.readlines()
+if vault_embeddings_tensor is None:
+    print(NEON_GREEN + "No embeddings found. Generating embeddings for the vault content..." + RESET_COLOR)
+    print(NEON_GREEN + "Loading vault content..." + RESET_COLOR)
+
+    vault_embeddings = []
+    for content in vault_content:
+        response = ollama.embeddings(model='mxbai-embed-large', prompt=content)
+        vault_embeddings.append(response["embedding"])
+    print("Converting embeddings to tensor...")
+    vault_embeddings_tensor = torch.tensor(vault_embeddings) 
+    save_embeddings(vault_embeddings_tensor, EMBEDDINGS_FILE)
+    print(NEON_GREEN + "Embeddings saved to file: " + EMBEDDINGS_FILE + RESET_COLOR)
+else:
+    print(NEON_GREEN + "Loaded embeddings from file: " + EMBEDDINGS_FILE + RESET_COLOR)
