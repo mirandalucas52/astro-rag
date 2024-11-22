@@ -22,7 +22,7 @@ Avant de commencer, vous devez avoir installé les dépendances suivantes :
 
 2. Installez les dépendances nécessaires :
 
-    pip install -r requirements.txt
+   pip install -r requirements.txt
 
 Assurez-vous que l'API Ollama et (optionnellement) OpenAI sont correctement configurées pour le projet.
 
@@ -30,12 +30,14 @@ Assurez-vous que l'API Ollama et (optionnellement) OpenAI sont correctement conf
 
 1. Vous devez tout d'abord mettre l'ID du fichier pdf se situant dans votre Google Drive à la ligne 6 du fichier upload.py.
 
-Pour l'exemple, nous avons un fichier sur l'astrologie, vous pouvez run le projet en faisant la commande
+Pour l'exemple, nous avons un fichier sur l'astrologie, vous pouvez run le projet en faisant la commande suivante qui vous permettra d'avoir accès au chat interactif sans RAG.
 
     python astro.py
 
-Vous pourrez poser une question à ollama, si vous faites la commande :
+Si vous faites la commande avant de lancer le script astro.py :
 
     python upload.py
 
-Avant de lancer le script astro.py, vous allez charger des embeddings pour le contenu du vault, ce qui va permettre à votre chat interactif d'être plus précis sur sa réponse en allant chercher le contenu dans le fichier PDF envoyé.
+Vous allez charger des embeddings pour le contenu du vault, ce qui va permettre à votre chat interactif d'être plus précis sur sa réponse en allant chercher le contenu dans le fichier PDF envoyé.
+
+Pour changer la temperature, vous pouvez aller ligne 62 du fichier astro.py et changer la valeur initiale de 0.1. Plus cette valeur est élevée, plus la réponse sera imprévisible et créative, plus elle est basse et plus la réponse sera précise et conservatrice.
