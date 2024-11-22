@@ -20,5 +20,10 @@ def convert_pdf_to_text():
             text = ''
             for page_num in range(num_pages):
                 page = pdf_reader.pages[page_num]
-                text += page.extract_text() + " "
-            print("Text extracted:", text)
+                page_text = page.extract_text()
+                if page_text:
+                    text += page_text + " "
+            if not text:
+                print("No text extracted from the PDF.")
+            else:
+                print("Text extracted:", text)
