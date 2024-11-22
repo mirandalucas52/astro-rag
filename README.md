@@ -37,7 +37,11 @@ Assurez-vous que l'API Ollama et (optionnellement) OpenAI sont correctement conf
 
 Attention à bien mettre l'accès général de l'image à toutes les personnes possédant le lien et non uniquement en limité comme ci dessous :
 
+
+
 <img width="505" alt="image" src="https://github.com/user-attachments/assets/f653091d-63da-450a-acd0-c6708a9c630c">
+
+
 
 Pour l'exemple, nous avons un fichier sur l'astrologie, vous pouvez run le projet en faisant la commande suivante qui vous permettra d'avoir accès au chat interactif sans RAG.
 
