@@ -22,7 +22,7 @@ Avant de commencer, vous devez avoir installé les dépendances suivantes :
 
 2. Installez les dépendances nécessaires :
 
-   pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Assurez-vous que l'API Ollama et (optionnellement) OpenAI sont correctement configurées pour le projet.
 
