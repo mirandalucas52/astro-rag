@@ -141,3 +141,14 @@ if vault_embeddings_tensor is None:
     print(NEON_GREEN + "Embeddings saved to file: " + EMBEDDINGS_FILE + RESET_COLOR)
 else:
     print(NEON_GREEN + "Loaded embeddings from file: " + EMBEDDINGS_FILE + RESET_COLOR)
+
+    conversation_history = []
+    system_message = "You are a helpful assistant that is an expert in knitting by extracting the most useful tips from the given document."
+
+while True:
+    user_input = input(YELLOW + "Pose moi une question sur l'astronomie (ou écrit quit pour quitter la conversation): " + RESET_COLOR)
+    if user_input.lower() == 'quit':
+        break
+    
+    response = ollama_chat(user_input, system_message, vault_embeddings_tensor, vault_content, args.model, conversation_history)
+    print(NEON_GREEN + "Response: \n\n" + response + RESET_COLOR)
