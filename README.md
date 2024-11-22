@@ -28,14 +28,14 @@ Assurez-vous que l'API Ollama et (optionnellement) OpenAI sont correctement conf
 
 ## Utilisation
 
-Vous devez tout d'abord mettre l'ID du fichier pdf se situant dans votre Google Drive à la ligne 6 du fichier upload.py.
+1. Vous devez tout d'abord mettre l'ID du fichier pdf se situant dans votre Google Drive à la ligne 6 du fichier upload.py.
 
 Pour l'exemple, nous avons un fichier sur l'astrologie, vous pouvez run le projet en faisant la commande
 
-   python astro.py
+    python astro.py
 
 Vous pourrez poser une question à ollama, si vous faites la commande :
 
-   python upload.py
+    python upload.py
 
 Avant de lancer le script astro.py, vous allez charger des embeddings pour le contenu du vault, ce qui va permettre à votre chat interactif d'être plus précis sur sa réponse en allant chercher le contenu dans le fichier PDF envoyé.
