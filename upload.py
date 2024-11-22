@@ -1,5 +1,6 @@
 import requests
 import PyPDF2
+import re
 
 def convert_pdf_to_text():
     file_id = "1-lEpAcgZ7B05yVJUK4OJyEdB9t7x031i"
@@ -27,3 +28,10 @@ def convert_pdf_to_text():
                 print("No text extracted from the PDF.")
             else:
                 print("Text extracted:", text)
+                
+            text = re.sub(r'\s+', ' ', text).strip()
+            
+            sentences = re.split(r'(?<=[.!?]) +', text)
+            print("Sentences:", sentences)
+
+convert_pdf_to_text()
