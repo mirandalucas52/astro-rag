@@ -14,6 +14,7 @@ Ce projet implémente un assistant de chat interactif qui utilise l'API Ollama p
 Avant de commencer, vous devez avoir installé les dépendances suivantes :
 
 -   **Python 3.x**
+-   **Ollama**
 
 ## Installation
 
