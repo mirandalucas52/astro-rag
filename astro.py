@@ -6,7 +6,6 @@ import json
 from openai import OpenAI
 import argparse
 
-
 PINK = '\033[95m'
 CYAN = '\033[96m'
 YELLOW = '\033[93m'
@@ -127,6 +126,7 @@ vault_content = []
 if os.path.exists("vault.txt"):
     with open("vault.txt", "r", encoding='utf-8') as vault_file:
         vault_content = vault_file.readlines()
+
 if vault_embeddings_tensor is None:
     print(NEON_GREEN + "No embeddings found. Generating embeddings for the vault content..." + RESET_COLOR)
     print(NEON_GREEN + "Loading vault content..." + RESET_COLOR)
@@ -142,11 +142,11 @@ if vault_embeddings_tensor is None:
 else:
     print(NEON_GREEN + "Loaded embeddings from file: " + EMBEDDINGS_FILE + RESET_COLOR)
 
-    conversation_history = []
-    system_message = "You are a helpful assistant that is an expert in knitting by extracting the most useful tips from the given document."
+conversation_history = []
+system_message = "You are a helpful assistant that is an expert in knitting by extracting the most useful tips from the given document."
 
 while True:
-    user_input = input(YELLOW + "Pose moi une question sur l'astronomie (ou écrit quit pour quitter la conversation): " + RESET_COLOR)
+    user_input = input(YELLOW + "Pose moi une question sur l'astronomie (ou écris quit pour quitter la conversation): " + RESET_COLOR)
     if user_input.lower() == 'quit':
         break
     
